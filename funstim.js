@@ -69,16 +69,20 @@ onmessage = e => {
       
       let amp = 0;
       
-      if(e.fadeonpause && fadeSamples && sample >= a0.at && sample <= a1.at) {
-        let d0 = sample - a0.at;
-        let d1 = a1.at - sample;
-        let dmin = d0 < d1 ? d0 : d1;
-        
-        if(dmin > fadeSamples) {
-          dmin = fadeSamples;
+      if(e.fadeonpause) {
+        if(fadeSamples && sample >= a0.at && sample <= a1.at) {
+          let d0 = sample - a0.at;
+          let d1 = a1.at - sample;
+          let dmin = d0 < d1 ? d0 : d1;
+          
+          if(dmin > fadeSamples) {
+            dmin = fadeSamples;
+          }
+          
+          amp = (fadeSamples - dmin) / fadeSamples;
         }
-        
-        amp = (fadeSamples - dmin) / fadeSamples;
+      } else {
+        amp = 1;
       }
       
       if(sample < fadeSamples) {
