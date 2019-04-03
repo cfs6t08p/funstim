@@ -69,8 +69,8 @@ onmessage = e => {
       
       let amp = 0;
       
-      if(e.fadeonpause) {
-        if(fadeSamples && sample >= a0.at && sample <= a1.at) {
+      if(e.fadeonpause && fadeSamples) {
+        if(sample >= a0.at && sample <= a1.at) {
           let d0 = sample - a0.at;
           let d1 = a1.at - sample;
           let dmin = d0 < d1 ? d0 : d1;
@@ -93,7 +93,9 @@ onmessage = e => {
       
       let filterLength = (e.sampleRate * e.fade) / 1000;
       
-      amp = (amp + ampFilter * (filterLength - 1)) / filterLength;
+      if(filterLength) {
+      	amp = (amp + ampFilter * (filterLength - 1)) / filterLength;
+      }
       
       ampFilter = amp;
       
