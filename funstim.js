@@ -75,6 +75,12 @@ onmessage = e => {
           let d1 = a1.at - sample;
           let dmin = d0 < d1 ? d0 : d1;
           
+          dmin -= fadeSamples;
+          
+          if(dmin < 0) {
+            dmin = 0;
+          }
+          
           if(dmin > fadeSamples) {
             dmin = fadeSamples;
           }
