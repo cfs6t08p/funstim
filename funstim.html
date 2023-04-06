@@ -16,15 +16,15 @@
       <div class="form-group">
         <label class="form-label">Sample rate</label>
         <select class="form-control" id="sampleRate">
-          <option value="8000" selected>8000 Hz (Fast)</option>
+          <option value="8000">8000 Hz (Fast)</option>
           <option value="22050">22050 Hz</option>
-          <option value="44100">44100 Hz (Slow)</option>
+          <option value="44100" selected>44100 Hz (Slow)</option>
         </select>
       </div>
       <div class="form-group">
         <label class="form-label">Frequency</label>
         <div class="input-group">
-          <input class="form-control" type="text" id="frequency" value="420,520,620">
+          <input class="form-control" type="text" id="frequency" value="820">
           <div class="input-group-append"><span class="input-group-text">Hz</span></div>
         </div>
         <small class="form-text text-muted">Enter a single frequency or a comma-separated list of frequencies to combine</small>
@@ -42,7 +42,7 @@
         <label class="form-check-label">Expand to full range</label>
       </div>
       <div class="form-check ml-2">
-        <input class="form-check-input" checked type="checkbox" id="fadeonpause">
+        <input class="form-check-input" type="checkbox" id="fadeonpause">
         <label class="form-check-label">Fade out during pauses/slow sections</label>
       </div>
       <div class="form-check ml-2">
